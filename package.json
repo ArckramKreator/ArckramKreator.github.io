@@ -1,0 +1,25 @@
+{
+  "name": "arckramkreator.github.io",
+  "version": "1.0.0",
+  "description": "Arckram Kreator's personal website",
+  "main": "js/cli.js",
+  "scripts": {
+    "dev": "http-server -o",
+    "format": "prettier --write 'src/*.js'",
+    "lint": "prettier --check 'src/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArckramKreator/ArckramKreator.github.io.git"
+  },
+  "author": "Carlos Galindo <cgalindocelis@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ArckramKreator/ArckramKreator.github.io/issues"
+  },
+  "homepage": "https://github.com/ArckramKreator/ArckramKreator.github.io#readme",
+  "devDependencies": {
+    "http-server": "^0.12.1",
+    "prettier": "^2.0.2"
+  }
+}
