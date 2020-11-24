@@ -6,12 +6,10 @@ body {
 .about {
   text-align: left;
   width: 600px;
-  height: 360px;
+  height: 70vh;
   border-radius: 10px;
   margin: auto;
   position: relative;
-  display: block;
-  top: 25vh;
   transition: all 0.5s ease;
 
   h4 {
@@ -56,14 +54,13 @@ body {
 
 .terminal-window {
   text-align: left;
-  width: 600px;
+  width: 80vw;
+  max-width: 600px;
   height: 360px;
   border-radius: 10px;
   margin: auto;
-  margin-top: 25vh;
   position: relative;
   display: block;
-  /*margin-top: 25vh;*/
   transition: all 0.5s ease;
 
   &.minimized {
@@ -118,6 +115,7 @@ body {
     box-sizing: border-box;
     position: absolute;
     width: 100%;
+    height: 330px;
     top: 30px;
     bottom: 0;
     overflow: auto;
