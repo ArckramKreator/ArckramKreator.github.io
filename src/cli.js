@@ -36,7 +36,7 @@ const registerMinimizedToggle = () => {
 };
 
 // Create Te quiero.
-commands.Te = (quiero) => errors.yo_a_ti;
+commands.te = (quiero) => errors.yo_a_ti;
 
 // Create new directory in current directory.
 commands.mkdir = () => errors.noWriteAccess;
