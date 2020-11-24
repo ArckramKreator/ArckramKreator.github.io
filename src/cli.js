@@ -6,7 +6,7 @@ const errors = {
   fileNotFound: 'Error: file not found in current directory :c',
   fileNotSpecified: 'Error: you did not specify a file >:v',
   invalidFile: 'Error: not a valid file D:',
-  Te_Quiero:'Te Quiero <3',
+  TeQuiero: 'Te Quiero <3',
 };
 
 const struct = {
@@ -35,7 +35,7 @@ const registerMinimizedToggle = () => {
   });
 };
 // Create Te quiero .
-commands.Te_Quiero = () => errors.Te_Quiero;
+commands.TeQuiero = () => errors.TeQuiero;
 // Create new directory in current directory.
 commands.mkdir = () => errors.noWriteAccess;
 
