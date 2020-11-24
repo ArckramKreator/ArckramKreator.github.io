@@ -6,7 +6,7 @@ const errors = {
   fileNotFound: 'Error: file not found in current directory :c',
   fileNotSpecified: 'Error: you did not specify a file >:v',
   invalidFile: 'Error: not a valid file D:',
-  Y_yo_a_ti: 'Te Quiero <3',
+  yo_a_ti: 'Te Quiero ❤',
 };
 
 const struct = {
@@ -34,8 +34,10 @@ const registerMinimizedToggle = () => {
     $('.terminal-window').toggleClass('minimized');
   });
 };
-// Create Te quiero .
-commands.TeQuiero = () => errors.Y_yo_a_ti;
+
+// Create Te quiero.
+commands.Te = (quiero) => errors.yo_a_ti;
+
 // Create new directory in current directory.
 commands.mkdir = () => errors.noWriteAccess;
 
