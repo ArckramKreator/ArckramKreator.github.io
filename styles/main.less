@@ -13,14 +13,6 @@ body {
   position: relative;
   transition: all 0.5s ease; 
 
-  h2 {
-    text-transform: uppercase;
-  }
-  h2, p {
-    color: white;
-    font-family: Menlo, Monaco, "Consolas", "Courier New", "Courier";
-  }
-
   img {
     border-radius: 50%;
     height: 200px;
@@ -35,12 +27,17 @@ body {
     flex-direction: column;
   }
   .text_block {
-    position: static;
     height: 100%;
-    float: left;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    h2 {
+      text-transform: uppercase;
+    }
+    h2, p {
+      color: white;
+      font-family: Menlo, Monaco, "Consolas", "Courier New", "Courier";
+    }
   }
 }
 
