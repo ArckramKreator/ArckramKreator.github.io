@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .message {
+      color: white;
+      text-align: center;
+      font-size: 3em;
+      animation: popIn 1.5s ease-in-out forwards;
+    }
+
+    .balloon {
+      position: absolute;
+      width: 60px;
+      height: 80px;
+      background-color: #ffcccb;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      animation: float 6s infinite ease-in-out;
+    }
+
+    .balloon::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      width: 2px;
+      height: 20px;
+      background: white;
+      transform: translateX(-50%);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(1); opacity: 1; }
+      100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="message">🎉 Happy Birthday! 🎂<br>Wishing you joy & love!</div>
+
+  <!-- Balloons -->
+  <div class="balloon" style="left: 10%; animation-delay: 0s;"></div>
+  <div class="balloon" style="left: 30%; animation-delay: 1s;"></div>
+  <div class="balloon" style="left: 50%; animation-delay: 2s;"></div>
+  <div class="balloon" style="left: 70%; animation-delay: 3s;"></div>
+  <div class="balloon" style="left: 90%; animation-delay: 4s;"></div>
+</body>
+</html>
