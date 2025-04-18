@@ -12,6 +12,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
     }
 
     .message {
@@ -22,24 +23,26 @@
 
     #player {
       position: absolute;
-      top: -9999px; /* hides the video */
+      top: -9999px;
     }
 
     .controls {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(255, 255, 255, 0.6);
-      padding: 10px 20px;
-      border-radius: 10px;
-      font-size: 1em;
+      margin-top: 20px;
     }
 
     button {
       padding: 10px 20px;
+      font-size: 1em;
       font-weight: bold;
       cursor: pointer;
+      border-radius: 10px;
+      border: none;
+      background: #ff69b4;
+      color: white;
+    }
+
+    button:hover {
+      background: #e0559e;
     }
   </style>
 </head>
@@ -53,12 +56,11 @@
   <div id="player"></div>
 
   <div class="controls">
-    <button onclick="togglePlay()" id="controlBtn">⏸ Pausar música</button>
+    <button onclick="startMusic()">▶ Iniciar música</button>
   </div>
 
   <script>
     let player;
-    let isPlaying = true;
 
     function onYouTubeIframeAPIReady() {
       player = new YT.Player('player', {
@@ -66,32 +68,27 @@
         width: '0',
         playerVars: {
           listType: 'playlist',
-          list: 'PLQkGQ32RaveQKdCchKSK9qk5rJlCdKAZj', // <- Replace with your playlist ID
-          autoplay: 1,
+          list: 'PLQkGQ32RaveQKdCchKSK9qk5rJlCdKAZj', // Replace with your playlist ID
+          autoplay: 0,
           loop: 1,
           controls: 0,
-          modestbranding: 1,
-          showinfo: 0
+          modestbranding: 1
         },
         events: {
           'onReady': function (event) {
-            event.target.setVolume(50);
+            // Optional: Try autoplay muted (browsers may still block it)
+            event.target.mute();
             event.target.playVideo();
           }
         }
       });
     }
 
-    function togglePlay() {
-      if (!player) return;
-      if (isPlaying) {
-        player.pauseVideo();
-        document.getElementById('controlBtn').innerText = '▶ Reanudar música';
-      } else {
+    function startMusic() {
+      if (player) {
+        player.unMute();
         player.playVideo();
-        document.getElementById('controlBtn').innerText = '⏸ Pausar música';
       }
-      isPlaying = !isPlaying;
     }
 
     // Load YouTube Iframe API
