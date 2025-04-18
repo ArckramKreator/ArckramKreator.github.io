@@ -6,58 +6,98 @@
   <style>
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Comic Sans MS', cursive;
+      background: linear-gradient(to bottom right, #ffb6c1, #ffe4e1);
       height: 100vh;
-      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: black;
-      color: white;
-    }
-
-    #video-background {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    iframe {
-      width: 100vw;
-      height: 100vh;
-      border: none;
     }
 
     .message {
-      position: relative;
-      z-index: 2;
+      font-size: 2.5em;
       text-align: center;
-      font-size: 3em;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 20px;
-      border-radius: 20px;
+      z-index: 2;
+    }
+
+    #player {
+      position: absolute;
+      top: -9999px; /* hides the video */
+    }
+
+    .controls {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.6);
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 1em;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-weight: bold;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-  <!-- YouTube Playlist in Background -->
-  <div id="video-background">
-    <iframe
-      src="https://www.youtube.com/embed/videoseries?list=PLQkGQ32RaveQKdCchKSK9qk5rJlCdKAZj&autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1"
-      allow="autoplay"
-      allowfullscreen
-    ></iframe>
-  </div>
-
   <div class="message">
-    🎉 Happy Birthday! 🎂<br>
-    Wishing you joy, love & music!
+    🎉 ¡Feliz cumpleaños! 🎶<br>
+    Que la música acompañe tu día.
   </div>
 
+  <div id="player"></div>
+
+  <div class="controls">
+    <button onclick="togglePlay()" id="controlBtn">⏸ Pausar música</button>
+  </div>
+
+  <script>
+    let player;
+    let isPlaying = true;
+
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        height: '0',
+        width: '0',
+        playerVars: {
+          listType: 'playlist',
+          list: 'PLQkGQ32RaveQKdCchKSK9qk5rJlCdKAZj', // <- Replace with your playlist ID
+          autoplay: 1,
+          loop: 1,
+          controls: 0,
+          modestbranding: 1,
+          showinfo: 0
+        },
+        events: {
+          'onReady': function (event) {
+            event.target.setVolume(50);
+            event.target.playVideo();
+          }
+        }
+      });
+    }
+
+    function togglePlay() {
+      if (!player) return;
+      if (isPlaying) {
+        player.pauseVideo();
+        document.getElementById('controlBtn').innerText = '▶ Reanudar música';
+      } else {
+        player.playVideo();
+        document.getElementById('controlBtn').innerText = '⏸ Pausar música';
+      }
+      isPlaying = !isPlaying;
+    }
+
+    // Load YouTube Iframe API
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.body.appendChild(tag);
+  </script>
 </body>
 </html>
