@@ -2,7 +2,11 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>¡Feliz Cumpleaños!</title>
+  <title>✨Pour toi✨</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+
   <style>
     body {
       margin: 0;
@@ -16,9 +20,18 @@
       text-align: center;
     }
 
+
     .message {
-      font-size: 2.5em;
-      margin-bottom: 30px;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 15px;
+      font-family: 'Great Vibes', cursive;
+      font-size: 2em;
+      color: #4b0082;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
     }
 
     .controls {
@@ -34,7 +47,7 @@
       border: none;
       background: #ff69b4;
       color: white;
-      margin-bottom: 15px;
+      margin: 0 5px 15px;
     }
 
     button:hover {
@@ -58,20 +71,32 @@
       position: absolute;
       top: -9999px;
     }
+    .emoji {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1em;
+    }
   </style>
 </head>
 <body>
 
   <div class="message">
-    🎉 ¡Feliz cumpleaños! <br>
-    Que la música acompañe tu día.
+    <p><strong><span class="emoji">✨</span> Joyeux anniversaire, Princesse ^^ <span class="emoji">✨</span></strong></p>
+    <p>Ne crois pas que j’ai oublié, je suis juste nul en design web <span class="emoji">xD</span></p>
+    <p>J’espère que tu as passé une belle journée et que tu t’es bien amusée <span class="emoji">uwu</span></p>
+    <p>J’ai décidé de te dédier quelques chansons <span class="emoji">uwu</span></p>
+    <p>Prends soin de toi, petite !</p>
+    <p><em><span class="emoji">✨</span> Ton sourire brille plus que les étoiles, ne laisse rien t'enlever ton sourire <span class="emoji">✨</span></em></p>
+    <p>J’espère que ce sera une année formidable et que tu réaliseras tout ce que tu veux <span class="emoji">:D</span></p>
+    <p><strong>Prends bien soin de toi, je t’aime fort !!!! <span class="emoji">💖</span></strong></p>
   </div>
 
   <div class="controls">
-    <button onclick="toggleMusic()" id="musicButton">▶ Iniciar música</button>
+    <button onclick="prevSong()" id="prevButton" disabled>⏮ Anterior</button>
+    <button onclick="toggleMusic()" id="musicButton" disabled>⏳ Cargando...</button>    
+    <button onclick="nextSong()" id="nextButton" disabled>⏭ Siguiente</button>
     <div class="song-info" id="songInfo">
-      Canción actual: <span id="title">Esperando información...</span><br>
-      <a href="https://www.youtube.com/playlist?list=PLFgquLnL59alCl_2TQvOiD5Vgm1hCaGSI" target="_blank">Ver playlist completa 🎵</a>
+      Canción actual: <span id="title">Cargando...</span><br>
+      <a href="https://www.youtube.com/playlist?list=PLQkGQ32RaveQKdCchKSK9qk5rJlCdKAZj" target="_blank">Ver playlist completa 🎵</a>
     </div>
   </div>
 
@@ -80,7 +105,8 @@
   <script>
     let player;
     let isPlaying = false;
-    const playlistId = 'PLFgquLnL59alCl_2TQvOiD5Vgm1hCaGSI'; // <-- REEMPLAZA con tu playlist
+    let playerReady = false;
+    const playlistId = 'PLQkGQ32RaveQKdCchKSK9qk5rJlCdKAZj'; // Reemplaza con tu ID de playlist
 
     function onYouTubeIframeAPIReady() {
       player = new YT.Player('player', {
@@ -96,14 +122,19 @@
         },
         events: {
           'onReady': function(event) {
+            playerReady = true;
+            document.getElementById('musicButton').disabled = false;
+            document.getElementById('nextButton').disabled = false;
+            document.getElementById('prevButton').disabled = false;
+            document.getElementById('musicButton').innerText = '▶ Iniciar música';
             updateSongTitle();
           },
           'onStateChange': function(event) {
-            if (event.data == YT.PlayerState.PLAYING) {
+            if (event.data === YT.PlayerState.PLAYING) {
               isPlaying = true;
               document.getElementById('musicButton').innerText = '⏸ Pausar música';
-              updateSongTitle();
-            } else if (event.data == YT.PlayerState.PAUSED) {
+              setTimeout(updateSongTitle, 1000);
+            } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
               isPlaying = false;
               document.getElementById('musicButton').innerText = '▶ Reanudar música';
             }
@@ -113,7 +144,7 @@
     }
 
     function toggleMusic() {
-      if (!player) return;
+      if (!playerReady || !player) return;
       if (isPlaying) {
         player.pauseVideo();
       } else {
@@ -121,12 +152,30 @@
       }
     }
 
-    function updateSongTitle() {
-      const title = player.getVideoData().title;
-      document.getElementById('title').innerText = title;
+    function nextSong() {
+      if (playerReady && player) {
+        player.nextVideo();
+        setTimeout(updateSongTitle, 1000);
+        player.playVideo();
+      }
     }
 
-    // Cargar la API de YouTube
+    function prevSong() {
+      if (playerReady && player) {
+        player.previousVideo();
+        setTimeout(updateSongTitle, 1000);
+        player.playVideo();
+      }
+    }
+
+    function updateSongTitle() {
+      const title = player.getVideoData().title;
+      if (title) {
+        document.getElementById('title').innerText = title;
+      }
+    }
+
+    // Carga la API de YouTube
     const tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
     document.body.appendChild(tag);
