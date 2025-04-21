@@ -1,0 +1,62 @@
+html, body {
+    overflow-x: hidden;
+    position: relative;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "IBM Plex Mono", monospace;
+    background-image: linear-gradient(to right, #030014 0%, hsl(249 100% 10% / 1) 50%, #030014 100%);
+    /*background-color: #030014;*/
+    color: white;
+    overflow: hidden;
+    width: 100vw;
+}
+
+.container, .container-md, .container-sm, .container-lg {
+    margin: 0 auto;
+}
+
+.spacer {
+    height: 2rem;
+}
+
+.section-divider{
+    height: 50px;
+}
+
+h1 {
+    font-size: clamp(2rem, 6vw, 3.5rem) !important;
+    font-weight: 300 !important;
+    color: white;
+    margin-bottom: 0.2rem;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem) !important;
+    font-weight: 200 !important;
+    color: #ffffffcc;
+    margin-bottom: 1rem !important;
+}
+
+h3 {
+    font-size: clamp(1.2rem, 4vw, 1.75rem) !important;
+    font-weight: 200 !important;
+    color: #ffffffcc;
+}
+
+h4 {
+    font-size: clamp(1rem, 3vw, 1.60rem) !important;
+    font-weight: 200 !important;
+    color: #ffffffcc;
+}
+
+p {
+    font-size: clamp(0.85rem, 2vw, 1.2rem) !important;
+    font-weight: 200 !important;
+    max-width: 850px;
+    color: #efedfd99;
+}

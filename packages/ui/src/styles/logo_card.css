@@ -1,0 +1,100 @@
+:root {
+    --background-light-rgb: 30 41 59;
+    --main-rgb: 41 121 255;
+    --main-light-rgb: 56 182 255;
+    --secondary-rgb: 42 252 152;
+    --logo-size: 90%;
+    --font-size: 0.8rem;
+    --card-size: 400px;
+    --border: 1px solid rgb(255 255 255 / 20%);
+}
+.logo-card-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 40vw;
+    width: 40vw;
+    overflow: hidden;
+    border-radius: 2rem;
+}
+.card-track {
+    height: 100%;
+    width: var(--card-size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.card-wrapper {
+    width: 90%;
+    position: relative;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1;
+    position: relative;
+    margin: 1rem;
+    border-radius: 2rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 4;
+}
+
+    .card-image > img {
+        width: var(--logo-size);
+    }
+
+.card-gradient {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: radial-gradient( rgb(var(--background-light-rgb)) 40%, rgb(var(--main-rgb)) 50%, rgb(var(--main-light-rgb)), rgb(var(--secondary-rgb)) );
+    mix-blend-mode: darken;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.card-letters {
+    --x: 0px;
+    --y: 0px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    color: white;
+    font-size: var(--font-size);
+    font-weight: 400;
+    word-wrap: break-word;
+    opacity: 0;
+    transition: opacity 400ms;
+    -webkit-mask-image: radial-gradient( calc(var(--card-size) * 0.8) circle at var(--x) var(--y), rgb(255 255 255) 20%, rgb(255 255 255 / 25%), transparent );
+    transform: scale( 1.03);
+}
+
+.card:hover .card-letters {
+    opacity: 1;
+}
+
+@media(max-width: 600px) {
+    :root {
+        --card-size: 90vmin;
+        --logo-size: 60vmin;
+    }
+
+    .card {
+        border-radius: 1.5rem;
+    }
+}

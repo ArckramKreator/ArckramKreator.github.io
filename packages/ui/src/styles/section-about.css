@@ -1,0 +1,18 @@
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    color: white;
+    text-align: center;
+}
+    .about h2 {
+        color: white;
+    }
+
+    .about h3 {
+
+        color: #ffffff99;
+    }
+

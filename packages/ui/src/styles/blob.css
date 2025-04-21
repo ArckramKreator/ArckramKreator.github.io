@@ -1,0 +1,35 @@
+#blob {
+    background-color: white;
+    height: 20vmin;
+    aspect-ratio: 1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: linear-gradient(to right, white, blue);
+    animation: rotate 20s infinite;
+    opacity: 0.8;
+    z-index: -2;
+}
+
+#blob-blur {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    -webkit-backdrop-filter: blur(12vmax);
+    backdrop-filter: blur(12vmax);
+}
+
+@keyframes rotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1.5, 1);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(180deg) scale(1, 2);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg) scale(1.5, 1);
+    }
+}

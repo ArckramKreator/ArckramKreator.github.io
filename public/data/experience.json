@@ -1,0 +1,74 @@
+[
+  {
+    "position": "Software Engineer",
+    "company": "Vectux Analytics",
+    "start": "Aug 2024",
+    "end": "Feb 2025",
+    "details": [
+      "Designed and implemented a Python-based solution for a confidential project, focusing on automation and data processing.",
+      "Prioritized security of confidential data throughout development.",
+      "Collaborated with the client for system deployment.",
+      "Conducted rigorous testing to ensure compliance with client requirements."
+    ]
+  },
+  {
+    "position": "Software Engineer",
+    "company": "imaginArq",
+    "start": "Jan 2020",
+    "end": "Dec 2023",
+    "details": [
+      "Led the development of 'ARQViz', a VR visualization and project management tool.",
+      "Built integration pipelines using Ruby and Unreal Engine 5 for SketchUp models.",
+      "Utilized C++, Python, Java, and TypeScript to enhance application features and web interface.",
+      "Deployed AR/VR solutions tailored to client architectural projects."
+    ]
+  },
+  {
+    "position": "Research and Development Intern",
+    "company": "Mirai Innovation",
+    "start": "Dec 2018",
+    "end": "Jul 2019",
+    "details": [
+      "Researched and developed VR/AR applications with Unity 3D and Google ARCore.",
+      "Focused on immersive training tools under NDA.",
+      "Scripted interactions using C# and tested with Blaze.",
+      "Delivered projects collaboratively within a 3-member team."
+    ]
+  },
+  {
+    "position": "VR Software Developer",
+    "company": "Mexican Caribbean Fishbowl",
+    "start": "Oct 2018",
+    "end": "Jul 2020",
+    "details": [
+      "Simulated the Mexican Caribbean environment in VR using Unity and ARCore.",
+      "Collaborated with a multidisciplinary academic team under Dr. David Israel Flores Granados.",
+      "Designed immersive and interactive user experiences.",
+      "Implemented development using C# in Unity."
+    ]
+  },
+  {
+    "position": "Teacher",
+    "company": "Mexican Computer Olympiad (OMI)",
+    "start": "Jan 2018",
+    "end": "2022",
+    "details": [
+      "Taught competitive programming in C++, Python, and Java to high school students.",
+      "Prepared students for the Mexican Computer Science Olympiad.",
+      "Mentored elementary and secondary students in algorithmic thinking using 'Karel the Robot'.",
+      "Organized mock contests and evaluated algorithmic solutions."
+    ]
+  },
+  {
+    "position": "Instructor",
+    "company": "UEMSTIS (via omegaUp)",
+    "start": "Sep 2020",
+    "end": "Sep 2020",
+    "details": [
+      "Delivered a programming teaching course based on problem-based learning.",
+      "Trained educators in integrating algorithmic thinking into classes.",
+      "Handled technical support during sessions and taught array structures.",
+      "Contributed to curriculum enhancement for tech educators."
+    ]
+  }
+]

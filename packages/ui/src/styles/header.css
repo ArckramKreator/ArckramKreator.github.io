@@ -1,0 +1,54 @@
+
+.header {
+    padding: 0rem 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 50;
+    /*blur*/
+    background: rgba(3,0,20,.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+    .header .container-lg {
+        -webkit-align-items: center;
+        align-items: center;
+        display: flex;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+        padding: 2rem 0rem;
+        position: relative;
+    }
+
+        .header .container-lg:before {
+            background: radial-gradient( 
+                62.87% 100% at 50% 100%, /* size and position */
+                rgba(255, 255, 255, 0.22) 0%, /* white at center, 12% opacity */
+                rgba(255, 255, 255, 0) 100% /* fully transparent at edges */
+            );
+            bottom: 0;
+            content: "";
+            height: 1px;
+            left: 0;
+            position: absolute;
+            width: 100%;
+        }
+
+.container-lg{
+    max-width: 1200px;
+}
+
+
+/* Base header styles (hidden by default) */
+.header-scroll {
+    /*anim*/
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Class to show nav after scroll */
+.header-visible {
+    transform: translateY(0%);
+}

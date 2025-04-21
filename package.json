@@ -1,25 +1,42 @@
 {
-  "name": "cgalindocelis.com",
+  "name": "CGalindoCelis",
   "version": "1.0.0",
-  "description": "Arckram Kreator's personal website",
-  "main": "js/cli.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "http-server -o",
-    "format": "prettier --write 'src/*.js'",
-    "lint": "prettier --check 'src/*.js'"
+    "generate:icons": "node scripts/generate-icons.js",
+
+    "prebuild:css": "node scripts/prebuild-css.js",
+    "prebuild:js": "node scripts/prebuild-js.js",
+
+    "build:css": "npx tailwindcss -i ./packages/ui/src/index.css    -o ./public/style.css    --minify",
+    "build:tailwind": "npx tailwindcss -i ./packages/ui/src/tailwind.css -o ./public/tailwind.css --minify",
+
+    "build:all": "node scripts/build-all.js",
+    "build:main": "node scripts/build-main.js",
+    "build:astro": "node scripts/build-astro.js",
+    "build:react": "node scripts/build-react.js",
+    "build:vue": "node scripts/build-vue.js",
+    "build:next": "node scripts/build-next.js",
+    "build:solid": "node scripts/build-solid.js",
+
+    "start": "npx serve public",
+
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ArckramKreator/ArckramKreator.github.io.git"
-  },
-  "author": "Carlos Galindo <cgalindocelis@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ArckramKreator/ArckramKreator.github.io/issues"
-  },
-  "homepage": "https://github.com/ArckramKreator/ArckramKreator.github.io#readme",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "public/*"
+  ],
   "devDependencies": {
-    "http-server": "^0.12.1",
-    "prettier": "^2.0.2"
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.24.0",
+    "postcss": "^8.5.3",
+    "postcss-import": "^16.1.0",
+    "tailwindcss": "^3.4.1"
   }
 }
