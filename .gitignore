@@ -1,0 +1,26 @@
+# node & package artifacts
+node_modules/
+npm-debug.log*
+
+# system/IDE files
+.DS_Store
+*.log
+*.swp
+*.swo
+.vscode/
+
+# local build outputs (DO track /docs)
+dist/
+out/
+apps/*/dist/
+apps/*/.next/
+apps/*/out/
+
+# Tailwind CSS output (if generated)
+public/style.css
+
+# Don't ignore final site output!
+!docs/
+
+# Ignore Visual Studio workspace files
+.vs/
