@@ -18,6 +18,7 @@ apps/*/out/
 
 # Tailwind CSS output (if generated)
 public/style.css
+public/index.js
 
 # Don't ignore final site output!
 !docs/
