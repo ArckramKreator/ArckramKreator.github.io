@@ -3,8 +3,24 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build:all": "node build-all.js",
-    "build:css": "npx tailwindcss -i ./public/tailwind.css -o ./public/style.css --minify",
+    "generate:icons": "node scripts/generate-icons.js",
+
+    "prebuild:css": "node scripts/prebuild-css.js",
+    "prebuild:js": "node scripts/prebuild-js.js",
+
+    "build:css": "npx tailwindcss -i ./packages/ui/src/index.css    -o ./public/style.css    --minify",
+    "build:tailwind": "npx tailwindcss -i ./packages/ui/src/tailwind.css -o ./public/tailwind.css --minify",
+
+    "build:all": "node scripts/build-all.js",
+    "build:main": "node scripts/build-main.js",
+    "build:astro": "node scripts/build-astro.js",
+    "build:react": "node scripts/build-react.js",
+    "build:vue": "node scripts/build-vue.js",
+    "build:next": "node scripts/build-next.js",
+    "build:solid": "node scripts/build-solid.js",
+
+    "start": "npx serve public",
+
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,12 +29,14 @@
   "description": "",
   "workspaces": [
     "apps/*",
-    "packages/*"
+    "packages/*",
+    "public/*"
   ],
   "devDependencies": {
     "autoprefixer": "^10.4.21",
     "eslint": "^9.24.0",
     "postcss": "^8.5.3",
-    "tailwindcss": "^4.1.4"
+    "postcss-import": "^16.1.0",
+    "tailwindcss": "^3.4.1"
   }
 }

@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pour toi💕</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>✨</text></svg>">
+    <meta name="robots" content="noindex, nofollow">
+
+
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Comic Sans MS', cursive;
+            background: linear-gradient(to bottom right, #ffb6c1, #ffe4e1);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+
+        .message {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 15px;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2em;
+            color: #4b0082;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+
+        .controls {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 25px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 10px;
+            border: none;
+            background: #ff69b4;
+            color: white;
+            margin: 0 5px 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+
+            button:hover {
+                background: #e0559e;
+            }
+
+        .song-info {
+            font-size: 1em;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 10px 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+
+            .song-info a {
+                text-decoration: none;
+                color: #c2185b;
+                font-weight: bold;
+            }
+
+        #player {
+            position: absolute;
+            top: -9999px;
+        }
+
+        .emoji {
+            font-family: 'Patrick Hand', cursive;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="message">
+        <p><strong><span class="emoji">✨</span> Joyeux anniversaire, Princesse ^^ <span class="emoji">✨</span></strong></p>
+        <p>Ne crois pas que j’ai oublié, je suis juste nul en design web <span class="emoji">xD</span></p>
+        <p>J’espère que tu as passé une belle journée et que tu t’es bien amusée <span class="emoji">uwu</span></p>
+        <p>J’ai décidé de te dédier quelques chansons <span class="emoji">uwu</span></p>
+        <p>Prends soin de toi, petite !</p>
+        <p><em><span class="emoji">✨</span> Ton sourire brille plus que les étoiles, ne laisse rien t'enlever ton sourire <span class="emoji">✨</span></em></p>
+        <p>J’espère que ce sera une année formidable et que tu réaliseras tout ce que tu veux <span class="emoji">:D</span></p>
+        <p><strong>Prends bien soin de toi, je t’aime fort !!!! <span class="emoji">💖</span></strong></p>
+    </div>
+
+    <div class="controls">
+        <button onclick="prevSong()" id="prevButton" disabled>⏮ Anterior</button>
+        <button onclick="toggleMusic()" id="musicButton" disabled>⏳ Cargando...</button>
+        <button onclick="nextSong()" id="nextButton" disabled>⏭ Siguiente</button>
+        <div class="song-info" id="songInfo">
+            Canción actual: <span id="title">Cargando...</span><br>
+            <a href="https://www.youtube.com/playlist?list=PLQkGQ32RaveQKdCchKSK9qk5rJlCdKAZj" target="_blank">Ver playlist completa 🎵</a>
+        </div>
+    </div>
+
+    <div id="player"></div>
+
+    <script>
+    let player;
+    let isPlaying = false;
+    let playerReady = false;
+    const playlistId = 'PLQkGQ32RaveQKdCchKSK9qk5rJlCdKAZj'; // Reemplaza con tu ID de playlist
+
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        height: '0',
+        width: '0',
+        playerVars: {
+          listType: 'playlist',
+          list: playlistId,
+          autoplay: 0,
+          loop: 1,
+          controls: 0,
+          modestbranding: 1
+        },
+        events: {
+          'onReady': function(event) {
+            playerReady = true;
+            document.getElementById('musicButton').disabled = false;
+            document.getElementById('nextButton').disabled = false;
+            document.getElementById('prevButton').disabled = false;
+            document.getElementById('musicButton').innerText = '▶ Iniciar música';
+            updateSongTitle();
+          },
+          'onStateChange': function(event) {
+            if (event.data === YT.PlayerState.PLAYING) {
+              isPlaying = true;
+              document.getElementById('musicButton').innerText = '⏸ Pausar música';
+              setTimeout(updateSongTitle, 1000);
+            } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+              isPlaying = false;
+              document.getElementById('musicButton').innerText = '▶ Reanudar música';
+            }
+          }
+        }
+      });
+    }
+
+    function toggleMusic() {
+      if (!playerReady || !player) return;
+      if (isPlaying) {
+        player.pauseVideo();
+      } else {
+        player.playVideo();
+      }
+    }
+
+    function nextSong() {
+      if (playerReady && player) {
+        player.nextVideo();
+        setTimeout(updateSongTitle, 1000);
+        player.playVideo();
+      }
+    }
+
+    function prevSong() {
+      if (playerReady && player) {
+        player.previousVideo();
+        setTimeout(updateSongTitle, 1000);
+        player.playVideo();
+      }
+    }
+
+    function updateSongTitle() {
+      const title = player.getVideoData().title;
+      if (title) {
+        document.getElementById('title').innerText = title;
+      }
+    }
+
+    // Carga la API de YouTube
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.body.appendChild(tag);
+    </script>
+
+</body>
+</html>

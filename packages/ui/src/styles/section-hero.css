@@ -1,0 +1,27 @@
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    color: white;
+    text-align: center;
+}
+    .hero:before {
+        background: radial-gradient(37.74% 81.78% at 50% 26.56%, rgba(148, 101, 255, .08) 0%, rgba(3, 0, 20, 0) 100%);
+        content: "";
+        display: block;
+        height: 900px;
+        left: 50%;
+        pointer-events: none;
+        position: absolute;
+        top: -173px;
+        transform: translate(-50%);
+        width: 1440px;
+        z-index: 1;
+    }
+
+.top-content {
+    flex: 1;
+}

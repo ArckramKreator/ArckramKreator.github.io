@@ -1,0 +1,140 @@
+.socials {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    color: white;
+    text-align: center;
+}
+
+    .socials h1 {
+        color: white
+    }
+
+    .socials h2 {
+        color: white;
+    }
+
+    .socials ul {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap; /* Allow wrapping */
+        gap: 0.5rem; 
+        align-items: center;
+        justify-content: center;
+    }
+        .socials ul li {
+            position: relative;
+            list-style: none;
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .socials ul li a {
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+                .socials ul li a .fa-brands {
+                    font-size: 3rem;
+                    color: #aaa;
+                    z-index: 1;
+                    position: relative;
+                }
+
+            .socials ul li::before {
+                font-size: 3rem;
+                font-family: FontAwesome;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: 0;
+                padding-top: 4px;
+                overflow: hidden;
+                transition: all 0.5s ease-in-out;
+                z-index: 2;
+                pointer-events: none;
+            }
+
+            .socials ul li:nth-child(1)::before { /* Instagram */
+                content: "\f16d";
+                background-image: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                border-bottom: 2px solid #dc2743;
+            }
+
+            
+
+            .socials ul li:nth-child(2)::before { /* Twitter */
+                content: "\f099";
+                color: #1da1f2;
+                border-bottom: 2px solid #1da1f2;
+            }
+
+            .socials ul li:nth-child(3)::before { /* GitHub */
+                content: "\f09b";
+                color: #ffffffcc;
+                border-bottom: 2px solid #ffffff99;
+            }
+
+            .socials ul li:nth-child(4)::before { /* ArtStation */
+                content: "\f77a";
+                color: #13aff0;
+                border-bottom: 2px solid #13aff0;
+            }
+
+            .socials ul li:nth-child(5)::before { /* LinkedIn */
+                content: "\f0e1";
+                color: #0077b5;
+                border-bottom: 2px solid #0077b5;
+            }
+
+            .socials ul li:nth-child(6)::before { /* TikTok */
+                content: "\e07b";
+                color: #000000;
+                border-bottom: 2px solid #000000;
+            }
+
+            .socials ul li:nth-child(7)::before { /* YouTube */
+                content: "\f167";
+                color: #ff0000;
+                border-bottom: 2px solid #ff0000;
+            }
+
+            .socials ul li:nth-child(8)::before { /* Discord */
+                content: "\f392";
+                color: #5865f2;
+                border-bottom: 2px solid #5865f2;
+            }
+
+            .socials ul li:nth-child(9)::before { /* Pinterest */
+                content: "\f0d2";
+                color: #e60023;
+                border-bottom: 2px solid #e60023;
+            }
+
+            .socials ul li:nth-child(10)::before { /* Twitch */
+                content: "\f1e8";
+                color: #9146ff;
+                border-bottom: 2px solid #9146ff;
+            }
+
+
+
+
+            .socials ul li:hover::before {
+                height: 100%;
+            }
+
+
+

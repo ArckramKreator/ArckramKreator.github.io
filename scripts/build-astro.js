@@ -1,0 +1,25 @@
+const { execSync } = require('child_process');
+const fs = require('fs');
+const path = require('path');
+
+const docsDir = path.join(__dirname, 'docs', 'astro');
+
+function copyDir(src, dest) {
+    if (!fs.existsSync(dest)) fs.mkdirSync(dest, { recursive: true });
+    for (const item of fs.readdirSync(src)) {
+        const srcPath = path.join(src, item);
+        const destPath = path.join(dest, item);
+        const stat = fs.statSync(srcPath);
+        if (stat.isDirectory()) {
+            copyDir(srcPath, destPath);
+        } else {
+            fs.copyFileSync(srcPath, destPath);
+        }
+    }
+}
+
+console.log('Building Astro section...');
+execSync('cd apps/astro-section && npm run build', { stdio: 'inherit' });
+
+copyDir(path.join(__dirname, 'apps/astro-section/dist'), docsDir);
+console.log('Astro build complete.');

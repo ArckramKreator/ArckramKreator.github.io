@@ -22,13 +22,165 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
-
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS and CSS -->
     <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/tailwind.css" />
+
+    <link rel="styleSHEET" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+    <!-- Scripts -->
+    <script src="/index.js" defer></script>
 
 </head>
-<body class="bg-gray-100 p-10 text-center">
-    <h1 class="text-3xl font-bold text-blue-600">Hello Tailwind</h1>
+<body class="text-center">
+    <!-- BLOB -->
+    <div id="blob"></div>
+    <div id="blob-blur"></div>
+
+    <!-- Hidden Navbar -->
+    <div id="main-header" class="header header-scroll">
+        <div class="container-lg">
+            <nav>
+                <ul class="flex gap-4">
+                    <li><a href="#top">Top</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#socials">Social Media</a></li>
+                    
+                    <li><a href="#skills" >Skills</a></li>
+                    <li><a href="#experience" >Experience</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+
+    <!-- Fullscreen Hero Section -->
+
+    <section id="top" class="hero">
+
+        <p class="top-content"></p>
+
+
+        <div class="card-track">
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="card-image">
+                        <div class="image-wrapper">
+                            <img src="/logo/LOGO_G_Transparent.png" />
+                            <div class="overlay-block"></div>
+                        </div>
+                    </div>
+                    <div class="card-gradient"></div>
+                    <div class="card-letters"></div>
+                </div>
+            </div>
+        </div>
+
+        <h3>Engineer</h3>
+        <h1 class="hacker-text" data-value="Carlos Manuel Galindo Celis">Carlos Manuel Galindo Celis</h1>
+        <h2>Software Developer</h2>
+        <p>
+            A multidisciplinary journey through code, design, and creativity—focused on crafting meaningful digital experiences.
+        </p>
+
+        <p class="top-content"></p>
+
+        <button class="arrow">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </section>
+
+    <div class="section-divider"></div>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div>
+            <h2 class="">About Me</h2>
+            <div class="spacer"></div>
+            <p class="">
+                I'm a Software Developer and 3D Artist with a multidisciplinary approach to digital creation. I specialize in building immersive experiences by blending programming, game development, and visual design.
+            </p>
+            <div class="spacer"></div>
+            <p class="">
+                From games and VR to interactive applications, I strive to balance technical precision with artistic vision. This space reflects my journey at the intersection of technology and creativity.
+            </p>
+        </div>
+    </section>
+    <div class="section-divider"></div>
+
+    <!-- Socials Section -->
+    <section id="socials" class="socials">
+        <h2>Social Media</h2>
+        <div class="spacer"></div>
+        <ul>
+            <li ><a href="https://www.instagram.com/arckram_kreator/"     target="_blank" rel="noopener noreferrer"> <i class="fa-brands fa-instagram "></i></a></li>
+            <li ><a href="https://x.com/Arckram_Kreator"                  target="_blank" rel="noopener noreferrer"> <i class="fa-brands fa-twitter twitter"></i></a></li>
+            <li ><a href="https://github.com/ArckramKreator"              target="_blank" rel="noopener noreferrer"> <i class="fa-brands fa-github github"></i></a></li>
+            <li ><a href="https://www.artstation.com/arckram_kreator"     target="_blank" rel="noopener noreferrer"> <i class="fa-brands fa-artstation artstation"></i></a></li>
+            <li ><a href="https://www.linkedin.com/in/cgalindocelis/"     target="_blank" rel="noopener noreferrer"> <i class="fa-brands fa-linkedin-in linkedin"></i></a></li>
+            <li ><a href="https://www.tiktok.com/@arckramkreator"         target="_blank" rel="noopener noreferrer"> <i class="fa-brands fa-tiktok tiktok"></i></a></li>
+            <li ><a href="https://www.youtube.com/@ArckramKreatorStudios" target="_blank" rel="noopener noreferrer"> <i class="fa-brands fa-youtube youtube"></i></a></li>
+            <li ><a href="https://discord.gg/YtPC4P5K"                    target="_blank" rel="noopener noreferrer"> <i class="fa-brands fa-discord discord"></i></a></li>
+            <li ><a href="https://mx.pinterest.com/ArckramKreator/"       target="_blank" rel="noopener noreferrer"> <i class="fa-brands fa-pinterest pinterest"></i></a></li>
+            <li ><a href="https://www.twitch.tv/arckram_kreator_studios"  target="_blank" rel="noopener noreferrer"> <i class="fa-brands fa-twitch twitch"></i></a></li>
+            <!--
+
+    <li><a href="#" target="_blank" rel="noopener noreferrer"> <i class="fa-brands fa-whatsapp whatsapp"></i></a></li>
+    <li><a href="#"> <i class="fa-brands fa-behance behance"></i></a></li>
+    -->
+
+        </ul>
+    </section>
+    <div class="section-divider"></div>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2>Skills & Technologies</h2>
+        <div class="spacer"></div>
+        <div class="skills-grid">
+            <!-- Auto-filled with JS -->
+        </div>
+
+    </section>
+    <div class="section-divider"></div>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <h2>Experience</h2>
+        <div class="spacer"></div>
+        <div class="experience-timeline">
+
+            <!--
+            <div class="experience-entry">
+                <div class="title">
+                    <div class="fill-content"><h3>Position</h3></div>
+                    <h3> — </h3>
+                    <div class="fill-content"><h4>Company</h4></div>
+                </div>
+                <div class="separator"></div>
+                <div class="duration">
+                    <div class="fill-content"><p class="ini">Aug 2024</p></div>
+                    <p> — </p>
+                    <div class="fill-content"><p class="fin">Feb 2025</p></div>
+                    </div>
+                <ul>
+                    <li><p>Built a Python-based solution under NDA, focusing on data automation and security.</p></li>
+                    <li><p>Led testing for deployment and compliance with client requirements.</p></li>
+                </ul>
+            </div>
+            -->
+            <!-- Auto-filled with JS -->
+
+        </div>
+    </section>
+
+
+
+
 </body>
 </html>

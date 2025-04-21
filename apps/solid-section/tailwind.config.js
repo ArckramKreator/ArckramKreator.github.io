@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const sharedConfig = require("../../packages/ui/tailwind.config.js");
+
 export default {
     content: [
         "./index.html", "./src/**/*.{js,ts,jsx,tsx}"
