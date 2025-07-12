@@ -11,6 +11,7 @@
     animation: rotate 20s infinite;
     opacity: 0.8;
     z-index: -2;
+    filter: blur(6vmax);
 }
 
 #blob-blur {
